@@ -22,7 +22,12 @@ const userSchema = mongoose.Schema({
     eventsCreated: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'event',
-    }]
+    }],
+    organization: {
+        type: Boolean,
+        required: true,
+        default: false,
+    }
 });
 
 mongoose.models = {};

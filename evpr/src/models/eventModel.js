@@ -33,6 +33,23 @@ const eventSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user',
     }],
+    numberOfReports: {
+        type: Number,
+        required: true,
+        default: 0,
+    },
+    image: {
+        type: String,
+        required: false,
+    },
+    registrationLinks: [{
+        type: String,
+        required: false,
+    }],
+    miscLinks: [{
+        type: String,
+        required: false,
+    }],
 });
 
 mongoose.models = {};
