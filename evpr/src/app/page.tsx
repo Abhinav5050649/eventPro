@@ -17,7 +17,7 @@ export default function Home() {
             </h1>
 
             <p className="mx-auto mt-4 max-w-xl sm:text-xl/relaxed">
-              The one-stop destination to connect with like-minded people.
+              Your one-stop destination to connect with like-minded people.
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4">

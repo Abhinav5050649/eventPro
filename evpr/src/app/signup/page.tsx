@@ -3,7 +3,6 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import toast from "react-hot-toast";
 
 export default function SignupPage() {
     const router = useRouter();
@@ -12,33 +11,17 @@ export default function SignupPage() {
         email: "",
         password: "",
         username: "",
-    })
+    });
 
-    const [buttonDisabled, setButtonDisabled] = React.useState(false);
-    const [loading, setLoading] = React.useState(false);
-
-    const onSignup = async () => {
+    const onSignup = async() => {
         try {
-            setLoading(true);
             const response = await axios.post("/api/users/signup", user);
             console.log("Singup success", response.data);
             router.push("/login");
-
         } catch (error: any) {
             console.log("signup failed", error.message)
-            toast.error(error.message);
-        } finally {
-            setLoading(false);
         }
     }
-
-    useEffect(() => {
-        if (user.email.length > 0 && user.password.length > 0 && user.username.length > 0) {
-            setButtonDisabled(false);
-        } else {
-            setButtonDisabled(true);
-        }
-    }, [user]);
 
     return (
         <section className="bg-white dark:bg-gray-900">
@@ -59,7 +42,7 @@ export default function SignupPage() {
                             EventPro
                         </a>
 
-                        <h1 className="mt-6 text-2xl font-bold text-gray-900 dark:text-orange-300 sm:text-3xl md:text-4xl">
+                        <h1 className="mt-6 text-2xl font-bold text-gray-900 dark:text-orange-500 sm:text-3xl md:text-4xl">
                             Welcome
                         </h1>
 
@@ -70,32 +53,16 @@ export default function SignupPage() {
                         <form action="#" className="mt-8 grid grid-cols-6 gap-6">
                             <div className="col-span-6 sm:col-span-3">
                                 <label
-                                    htmlFor="FirstName"
+                                    htmlFor="username"
                                     className="block text-sm font-medium text-gray-700 dark:text-gray-200"
                                 >
-                                    First Name
+                                    Username
                                 </label>
 
                                 <input
                                     type="text"
-                                    id="FirstName"
-                                    name="first_name"
-                                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-                                />
-                            </div>
-
-                            <div className="col-span-6 sm:col-span-3">
-                                <label
-                                    htmlFor="LastName"
-                                    className="block text-sm font-medium text-gray-700 dark:text-gray-200"
-                                >
-                                    Last Name
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="LastName"
-                                    name="last_name"
+                                    id="username"
+                                    name="username"
                                     className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
                                 />
                             </div>
@@ -144,6 +111,21 @@ export default function SignupPage() {
                                     className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
                                 />
                             </div>
+                            
+                            <div className="col-span-6">
+                                <label htmlFor="OrgBool" className="flex gap-4">
+                                <input
+                                    type="checkbox"
+                                    id="OrgBool"
+                                    name="OrgBool"
+                                    className="h-5 w-5 rounded-md border-gray-200 bg-white shadow-sm"
+                                />
+
+                                <span className="text-sm text-white">
+                                    Are you an Organization?
+                                </span>
+                                </label>
+                            </div>
 
                             <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
                                 <button
@@ -153,7 +135,7 @@ export default function SignupPage() {
                                 </button>
 
                                 <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
-                                    Already have an account? <a href="#" className="text-gray-700 underline dark:text-gray-200"> Log in</a>.
+                                    Already have an account? <a href="/login" className="text-gray-700 underline dark:text-gray-200"> Log in</a>.
                                 </p>
                             </div>
                         </form>

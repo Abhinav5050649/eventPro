@@ -33,6 +33,11 @@ const eventSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user',
     }],
+    views: {
+        type: Number,
+        required: true,
+        default: 0,
+    },
     numberOfReports: {
         type: Number,
         required: true,
