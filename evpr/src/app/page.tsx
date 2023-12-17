@@ -4,24 +4,33 @@ import Navbar from './Navbar/page'
 export default function Home() {
   return (
     <>
-    <Navbar />
-    <div className="relative overflow-hidden bg-cover bg-repeat" style={{backgroundPosition: "50%;", backgroundImage: `url('https://tecdn.b-cdn.net/img/new/slides/146.webp');`, height: `350px;`}}>
-    <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed" style={{backgroundColor: `rgba(0, 0, 0, 0.75)`}}>
-      <div className="flex h-full items-center justify-center">
-        <div className="px-6 text-center text-white md:px-12">
-          <h1 className="mb-6 text-5xl font-bold">Welcome to EventPro</h1>
-          <h3 className="mb-8 text-3xl font-bold"></h3>
-          <button
-            type="button"
-            className="inline-block rounded border-2 border-neutral-50 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
-            data-te-ripple-init
-            data-te-ripple-color="light">
-            Get started
-          </button>
+      <Navbar />
+      <section className="bg-gray-900 text-white">
+        <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen flex min-h-screen min-w-screen lg:items-center">
+          <div className="mx-auto max-w-3xl text-center">
+            <h1
+              className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl"
+            >
+              EventPro
+
+              <span className="sm:block"> A Platform to Host Events! </span>
+            </h1>
+
+            <p className="mx-auto mt-4 max-w-xl sm:text-xl/relaxed">
+              The one-stop destination to connect with like-minded people.
+            </p>
+
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <a
+                className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
+                href="/signup"
+              >
+                Get Started
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
+      </section>
     </>
   )
 }
