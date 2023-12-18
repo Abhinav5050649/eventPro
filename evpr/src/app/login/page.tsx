@@ -14,7 +14,6 @@ export default function LoginPage() {
 
     const onLogin = async () => {
         try {
-            console.log("login mein hu");
             const response = await axios.post("/api/users/login", user);
             console.log("Login success", response.data);
             router.push("/dashboard");
@@ -38,17 +37,21 @@ export default function LoginPage() {
                     <h1 className="my-6">
                         <a href="/"className="text-5xl font-bold tracking-wide text-gray-100 hover:text-gray-300">EventPro</a>
                     </h1>
-                    <form action="" className="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+                    <div className="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                         <div className="pb-2 pt-4">
-                            <input type="email" name="email" id="email" placeholder="Email" className="block w-full p-4 text-lg rounded-sm bg-black"/>
+                            <input type="email" name="email" id="email" placeholder="Email" value={user.email}
+                                    onChange={(e) => setUser({...user, email: e.target.value})}
+                                    className="block w-full p-4 text-lg rounded-sm bg-black"/>
                         </div>
                         <div className="pb-2 pt-4">
-                            <input className="block w-full p-4 text-lg rounded-sm bg-black" type="password" name="password" id="password" placeholder="Password"/>
+                            <input className="block w-full p-4 text-lg rounded-sm bg-black" type="password" name="password" id="password" value={user.password}
+                                    onChange={(e) => setUser({...user, password: e.target.value})}
+                                    placeholder="Password"/>
                         </div>
                         <div className="px-4 pb-2 pt-4">
-                            <button className="uppercase block w-full p-4 text-lg rounded-full bg-blue-600  focus:outline-none">Login</button>
+                            <button onClick={onLogin} className="uppercase block w-full p-4 text-lg rounded-full bg-blue-600  focus:outline-none">Login</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </section>

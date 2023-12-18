@@ -57,7 +57,7 @@ export default function SignupPage() {
                             Fill out these details to get started!
                         </p>
 
-                        <form action="#" className="mt-8 grid grid-cols-6 gap-6">
+                        <div className="mt-8 grid grid-cols-6 gap-6">
                             <div className="col-span-6 sm:col-span-3">
                                 <label
                                     htmlFor="username"
@@ -155,7 +155,7 @@ export default function SignupPage() {
                                     Already have an account? <a href="/login" className="text-gray-700 underline dark:text-gray-200"> Log in</a>.
                                 </p>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </main>
             </div>
