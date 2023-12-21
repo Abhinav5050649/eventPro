@@ -2,13 +2,27 @@
 import axios from "axios";
 import Link from "next/link";
 import { NextResponse } from "next/server";
-import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import React from "react";
 
 export default function ProfilePage(){
     const router = useRouter();
     
+    const [data, setData] = React.useState({
+        username: "",
+        eventsCreated: [],
+        eventsParticipated: [],
+    });
+
+    const getDets = async() => {
+        try{
+            const response = await axios.get("/api/users/profile");
+            setData(response.data);
+        } catch (error: any) {
+            console.log(error.message)
+        }
+    }
+
     const logout = async() => {
         try{
             const response = await axios.get("/api/users/logout");
@@ -18,6 +32,7 @@ export default function ProfilePage(){
         }
     }
 
+    //modify to properly display user details
     return(
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
             <h1>Profile</h1>
