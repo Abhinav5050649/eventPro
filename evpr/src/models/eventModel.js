@@ -47,10 +47,6 @@ const eventSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    registrationLinks: [{
-        type: String,
-        required: false,
-    }],
     miscLinks: [{
         type: String,
         required: false,

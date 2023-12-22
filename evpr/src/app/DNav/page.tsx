@@ -1,6 +1,20 @@
 import React from "react";
+import axios from "axios";
+import router from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function DNav() {
+
+    const router = useRouter();
+    
+    const onLogout = async () => {
+        try{
+            const response = await axios.get("/api/users/logout");
+            router.push("/");
+        }catch(error: any){
+            console.log(error.message)
+        }
+    }
     return (
         <header className="bg-white dark:bg-gray-900">
             <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
@@ -10,9 +24,9 @@ export default function DNav() {
                             <li>
                                 <a
                                     className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                                    href="/"
+                                    href="/events/create"
                                 >
-                                    Create
+                                    Create Event
                                 </a>
                             </li>
 
@@ -21,7 +35,7 @@ export default function DNav() {
                                     className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                                     href="/"
                                 >
-                                    All
+                                    All Events
                                 </a>
                             </li>
 
@@ -30,7 +44,7 @@ export default function DNav() {
                                     className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                                     href="/"
                                 >
-                                    One
+                                    Find an Event
                                 </a>
                             </li>
 
@@ -56,9 +70,16 @@ export default function DNav() {
 
                             <a
                                 className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75 sm:block"
-                                href="/"
+                                href="/dashboard"
                             >
                                 Profile
+                            </a>
+
+                            <a
+                                className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75 sm:block"
+                                onClick={onLogout}
+                            >
+                                Logout
                             </a>
                         </div>
 
@@ -72,9 +93,9 @@ export default function DNav() {
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
-                                stroke-width="2"
+                                strokeWidth="2"
                             >
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
                         </button>
                     </div>
