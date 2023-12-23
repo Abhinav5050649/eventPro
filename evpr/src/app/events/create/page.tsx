@@ -13,8 +13,35 @@ export default function eventForm() {
         router.push("/dashboard");
     }
 
+    const [stDate, setStDate] = React.useState("");
+    const [enDate, setEnDate] = React.useState("");
+
+    const [data, setData] = React.useState({
+        name: "",
+        description: "",
+        startDate: new Date(),
+        endDate: new Date(),
+        location: "",
+        image: "",
+        miscLinks: "",
+    })
     const handleRegisteration = async () => {
         //define function to integrate with backend
+        try{
+            setData({...data, startDate: new Date(Date.parse(stDate)), endDate: new Date(Date.parse(enDate))})
+            
+            const response = await axios.post(`/api/events/create`,  data );
+            
+            if (response.status === 201) {
+                sendToDashboard();
+            }
+            else{
+                alert("Error in creating event");
+            }
+
+        } catch (error: any) {
+            console.log(error.message);
+        }
     }
 
     return (
@@ -33,18 +60,18 @@ export default function eventForm() {
                             <div className="divide-y divide-gray-200">
                                 <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                                     <div className="flex flex-col">
-                                        <label className="leading-loose">Event Title</label>
-                                        <input type="text" className="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Event title" required/>
+                                        <label className="leading-loose">Event Name/Title</label>
+                                        <input type="text" className="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Event name/title" value={data.name} onChange={(e) => setData({...data, name: e.target.value})} required/>
                                     </div>
                                     <div className="flex flex-col">
                                         <label className="leading-loose">Event Description</label>
-                                        <input type="text" className="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Event Description" required/>
+                                        <input type="text" className="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Event Description" value={data.description} onChange={(e) => setData({...data, description: e.target.value})} required/>
                                     </div>
                                     <div className="flex items-center space-x-4">
                                         <div className="flex flex-col">
                                             <label className="leading-loose">Start</label>
                                             <div className="relative focus-within:text-gray-600 text-gray-400">
-                                                <input type="text" className="pr-4 pl-10 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="25/02/2020" required/>
+                                                <input type="text" className="pr-4 pl-10 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="25/02/2020" value={stDate} onChange={(e) => setStDate(e.currentTarget.value)} required/>
                                                     <div className="absolute left-3 top-2">
                                                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                                                     </div>
@@ -53,7 +80,7 @@ export default function eventForm() {
                                         <div className="flex flex-col">
                                             <label className="leading-loose">End</label>
                                             <div className="relative focus-within:text-gray-600 text-gray-400">
-                                                <input type="text" className="pr-4 pl-10 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="26/02/2020" required/>
+                                                <input type="text" className="pr-4 pl-10 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="26/02/2020" value={enDate} onChange={(e) => setEnDate(e.currentTarget.value)} required/>
                                                     <div className="absolute left-3 top-2">
                                                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                                                     </div>
@@ -62,7 +89,7 @@ export default function eventForm() {
                                     </div>
                                     <div className="flex flex-col">
                                         <label className="leading-loose">Location</label>
-                                        <input type="text" className="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="If online, mention online. Else, mention the complete location!"/>
+                                        <input type="text" className="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="If online, mention online. Else, mention the complete location!" value={data.location} onChange={(e) => setData({...data, location: e.target.value})} required/>
                                     </div>
                                     <div className="flex flex-col">
                                         <label className="leading-loose">Event Image URL</label>

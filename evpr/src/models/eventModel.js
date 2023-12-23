@@ -47,10 +47,10 @@ const eventSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    miscLinks: [{
+    miscLinks: {
         type: String,
         required: false,
-    }],
+    },
 });
 
 mongoose.models = {};

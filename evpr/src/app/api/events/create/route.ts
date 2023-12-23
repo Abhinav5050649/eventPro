@@ -9,7 +9,7 @@ connect()
 export async function POST(request: NextRequest){
     try{
         const reqBody = await request.json();
-        const {name, description, creationDate, startDate, endDate, location, image, registrationLinks, miscLinks} = reqBody;
+        const {name, description, startDate, endDate, location, image, miscLinks} = reqBody;
 
         const userId = getDataFromToken(request);
 
@@ -20,13 +20,12 @@ export async function POST(request: NextRequest){
         const eventData = {
             name, 
             description,
-            creationDate,
             startDate,
             endDate,
             location, 
             image,
             creator: userId,
-            registrationLinks,
+            creationDate: new Date(),
             miscLinks
         }
 
