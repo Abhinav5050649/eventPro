@@ -9,7 +9,9 @@ connect()
 export async function POST(request: NextRequest){
     try{
         const reqBody = await request.json();
-        const {name, description, startDate, endDate, location, image, miscLinks} = reqBody;
+        var {name, description, startDate, endDate, location, image, miscLinks} = reqBody;
+
+        if (image == "")   image = process.env.DEFAULT_EVENT_IMG;
 
         const userId = getDataFromToken(request);
 
@@ -31,6 +33,9 @@ export async function POST(request: NextRequest){
 
         const event = await Event.create(eventData);
 
+        const user = await User.findById(userId);
+        user.eventsCreated.push(event._id);
+        await user.save();
         return NextResponse.json({message: "Event Created!", event}, {status: 201});
 
     } catch (error: any) {

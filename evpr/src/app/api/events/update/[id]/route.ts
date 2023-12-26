@@ -5,10 +5,10 @@ import getDataFromToken from "@/helpers/getDataFromToken";
 
 connect()
 
-export async function PUT(request: NextRequest, params: {id: string}){
+export async function PUT(request: NextRequest, {params}: any){
     try{
         const reqBody = await request.json();
-        const {name, description, creationDate, startDate, endDate, location, image, registrationLinks, miscLinks} = reqBody
+        const {name, description, startDate, endDate, location, image, miscLinks} = reqBody
         
         const userId = getDataFromToken(request);
         const eventData = await Event.findById(params.id);
@@ -20,16 +20,14 @@ export async function PUT(request: NextRequest, params: {id: string}){
         const updatedEvent = await Event.findByIdAndUpdate(eventData._id, {
             name, 
             description,
-            creationDate,
             startDate,
             endDate,
             location, 
             image,
-            registrationLinks,
             miscLinks
         }, {new: true});
 
-        return NextResponse.json({message: "Event Updated!", updatedEvent}, {status: 200})
+        return NextResponse.json({message: "Event Updated!", data: updatedEvent, status: 200})
         
     } catch (error: any){
         return NextResponse.json({error:error.message}, {status:500})

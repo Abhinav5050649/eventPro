@@ -5,7 +5,7 @@ import getDataFromToken from "@/helpers/getDataFromToken";
 
 connect()
 
-export async function DELETE(request: NextRequest, params: {id: String}){
+export async function DELETE(request: NextRequest, {params}: any){
     try{
         const {id} = params;
         const userId = getDataFromToken(request);

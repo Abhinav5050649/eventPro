@@ -33,7 +33,7 @@ export default function DNav() {
                             <li>
                                 <a
                                     className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                                    href="/"
+                                    href="/events/all"
                                 >
                                     All Events
                                 </a>
@@ -42,16 +42,7 @@ export default function DNav() {
                             <li>
                                 <a
                                     className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                                    href="/"
-                                >
-                                    Find an Event
-                                </a>
-                            </li>
-
-                            <li>
-                                <a
-                                    className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                                    href="/"
+                                    href="/events/user"
                                 >
                                     Your Events
                                 </a>
@@ -63,7 +54,7 @@ export default function DNav() {
                         <div className="sm:flex sm:gap-4">
                             <a
                                 className="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700 dark:hover:bg-teal-500"
-                                href="/"
+                                href="/find/user"
                             >
                                 Find User
                             </a>

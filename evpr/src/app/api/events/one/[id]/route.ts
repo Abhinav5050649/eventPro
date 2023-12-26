@@ -1,28 +1,30 @@
 import { connect } from "@/dbConfig/dbConfig";
 import Event from "@/models/eventModel";
-import User from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
 
-connect()
+connect();
 
-export async function GET(request: NextRequest, params: {id: String}){
-    try{
-        const {id} = params;
-        const event = await Event.findById(id).select("-views -numberOfReports -participants");
+export async function GET(request: NextRequest, { params }: any) {
+  try {
+    const { id } = params;
 
-        if (!event){
-            return NextResponse.json({error: "Event not found!"}, {status: 404})
-        }
-        event.views += 1
-        event.save()
-        .then(() => {
-            return NextResponse.json({message: "Event Found!", success: true, event}, {status: 200})
-        })
-        .catch((error: any) => {
-            return NextResponse.json({error: error.message}, {status: 500})
-        })
+    // Use substring instead of remove and convert to number
+    const eventId = (id.substring(1));
 
-    } catch (error: any) {
-        return NextResponse.json({error: error.message}, {status: 500})
+    console.log(eventId);
+
+    const event = await Event.findById(eventId.toString())
+
+    if (!event) {
+      return NextResponse.json({ error: "Event not found!" }, { status: 404 });
     }
+
+    event.views += 1;
+    const updateSuccess = await event.save();
+
+    console.log(updateSuccess)
+    return NextResponse.json({ message: "Event Found!", success: true, data: event, status: 200 });
+  } catch (error: any) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
 }
