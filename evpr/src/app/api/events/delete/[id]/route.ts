@@ -9,9 +9,10 @@ export async function DELETE(request: NextRequest, {params}: any){
     try{
         const {id} = params;
         const userId = getDataFromToken(request);
-        const eventData = await Event.findById(id);
+        const eventId = id.substring(1);
+        const eventData = await Event.findById(eventId);
 
-        if (userId !== eventData.creator){
+        if (userId.toString() != eventData.creator){
             return NextResponse.json({error: "You must be the creator of the event to delete it!"}, {status: 403})
         }
 

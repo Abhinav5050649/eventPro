@@ -11,8 +11,6 @@ export async function GET(request: NextRequest, { params }: any) {
     // Use substring instead of remove and convert to number
     const eventId = (id.substring(1));
 
-    console.log(eventId);
-
     const event = await Event.findById(eventId.toString())
 
     if (!event) {
@@ -22,7 +20,6 @@ export async function GET(request: NextRequest, { params }: any) {
     event.views += 1;
     const updateSuccess = await event.save();
 
-    console.log(updateSuccess)
     return NextResponse.json({ message: "Event Found!", success: true, data: event, status: 200 });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });

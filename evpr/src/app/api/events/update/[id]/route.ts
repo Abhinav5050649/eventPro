@@ -8,10 +8,18 @@ connect()
 export async function PUT(request: NextRequest, {params}: any){
     try{
         const reqBody = await request.json();
-        const {name, description, startDate, endDate, location, image, miscLinks} = reqBody
+        var {name, description, startDate, endDate, location, image, miscLinks} = reqBody
         
         const userId = getDataFromToken(request);
         const eventData = await Event.findById(params.id);
+        
+        name = name || eventData.name;
+        description = description || eventData.description;
+        startDate = startDate || eventData.startDate;
+        endDate = endDate || eventData.endDate;
+        location = location || eventData.location;
+        image = image || eventData.image;
+        miscLinks = miscLinks || eventData.miscLinks;
 
         if (userId !== eventData.creator){
             return NextResponse.json({error: "You must be the creator of the event to update it!"}, {status: 403})
@@ -26,6 +34,8 @@ export async function PUT(request: NextRequest, {params}: any){
             image,
             miscLinks
         }, {new: true});
+
+        console.log(updatedEvent)
 
         return NextResponse.json({message: "Event Updated!", data: updatedEvent, status: 200})
         
