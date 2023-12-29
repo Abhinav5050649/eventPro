@@ -22,8 +22,8 @@ export async function POST(request: NextRequest){
         const eventData = {
             name, 
             description,
-            startDate,
-            endDate,
+            startDate: new Date(Date.parse(startDate)),
+            endDate: new Date(Date.parse(endDate)),
             location, 
             image,
             creator: userId,

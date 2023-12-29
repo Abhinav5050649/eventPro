@@ -17,7 +17,6 @@ export async function GET(request: NextRequest, { params }: any) {
       return NextResponse.json({ error: "Event not found!" }, { status: 404 });
     }
 
-    event.views += 1;
     const updateSuccess = await event.save();
 
     return NextResponse.json({ message: "Event Found!", success: true, data: event, status: 200 });
