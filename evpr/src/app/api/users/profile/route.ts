@@ -3,7 +3,6 @@ import { NextResponse, NextRequest } from "next/server";
 import User from "@/models/userModel";
 import Event from "@/models/eventModel";
 import getDataFromToken from "@/helpers/getDataFromToken";
-import { ObjectId } from "mongoose";
 
 connect()
 

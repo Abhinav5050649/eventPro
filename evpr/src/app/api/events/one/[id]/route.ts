@@ -8,7 +8,6 @@ export async function GET(request: NextRequest, { params }: any) {
   try {
     const { id } = params;
 
-    // Use substring instead of remove and convert to number
     const eventId = (id.substring(1));
 
     const event = await Event.findById(eventId.toString())

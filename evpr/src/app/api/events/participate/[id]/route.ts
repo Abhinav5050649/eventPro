@@ -44,7 +44,6 @@ export async function PUT(request: NextRequest, { params }: any) {
       event.participants.pull(userId);
       user.eventsParticipated.pull(event._id);
 
-      // Add mail code here
       let messageText = `You are no longer a participant of Event: ${event.name}, starting on ${event.startDate}`;
       let subjectText = `Non-Participation in Event: ${event.name}`
       
@@ -62,7 +61,6 @@ export async function PUT(request: NextRequest, { params }: any) {
       event.participants.push(user._id);
       user.eventsParticipated.push(event._id);
 
-      // Add mail code here
       let messageText = `You are now a participant of Event: ${event.name}, starting on ${event.startDate}`;
       let subjectText = `Participation in Event: ${event.name}`
 

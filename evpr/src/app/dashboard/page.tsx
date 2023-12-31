@@ -32,7 +32,6 @@ export default function ProfilePage(){
         fetchData();
     }, []);
 
-    //modify to properly display user details
     return(
         <>
         <DNav/>

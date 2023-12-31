@@ -33,7 +33,6 @@ export default function eventForm() {
     });
 
     const handleRegisteration = async () => {
-        //define function to integrate with backend
         try{
             const response = await axios.post(`/api/events/create`,  data );
             

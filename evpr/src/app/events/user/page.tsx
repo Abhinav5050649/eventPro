@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import DNav from "@/app/DNav/page";
-import { ObjectId } from "mongoose";
 
 interface Event {
   _id: string;

@@ -33,7 +33,6 @@ export default function eventUpdateForm({params}: any) {
     });
 
     const handleRegisteration = async () => {
-        //define function to integrate with backend
         try{
             const response = await axios.put(`/api/events/update/${params.id}`,  data );
             
