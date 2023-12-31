@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 import User from '@/models/userModel';
 
-export const sendEmail = async({eventReportPCent, userId}: any) => {
+export const sendEmail = async({message, subject, userId}: any) => {
     try{
         const user = await User.findById(userId);
 
@@ -17,9 +17,8 @@ export const sendEmail = async({eventReportPCent, userId}: any) => {
         const mailOptions = {
             from: process.env.MAIL_ID,
             to: user.email,
-            subject: "Report on your event!",
-            html: `<p>This is to inform you that of all the people who have viewed your event, ${eventReportPCent}% have reported it. Please modify your event to make it more appropriate for the platform.
-            Also, if the event is reported by more than 50% of the users, your event will be deleted automatically!</p>`
+            subject: subject,
+            html: `<p>${message}</p>`
         }
 
         const mailResponse = await transport.sendMail(mailOptions);

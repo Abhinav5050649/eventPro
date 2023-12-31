@@ -11,7 +11,6 @@ export default function ProfilePage(){
     
     const [data, setData] = React.useState({
         username: "",
-        eventsCreated: [],
         eventsParticipated: [],
     });
 
@@ -19,7 +18,12 @@ export default function ProfilePage(){
         const fetchData = async () => {
             try {
                 const response = await axios.get("/api/users/profile");
-                setData(response.data);
+                setData({
+                    username: response.data.username,
+                    eventsParticipated: response.data.eventsParticipated,
+                });
+
+                console.log(response);
             } catch (error: any) {
                 console.log(error.message)
             }
