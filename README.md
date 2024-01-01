@@ -14,22 +14,36 @@ Home Page:
 
 
 Login Page:
-![image](https://github.com/Abhinav5050649/eventPro/assets/89687523/4d3d4eb8-8f9f-46e4-b59d-f4f331275b14)
+
+![image](https://github.com/Abhinav5050649/eventPro/assets/89687523/db07d904-9b45-4897-b849-8362fb41710a)
+
 
 Signup Page:
-![image](https://github.com/Abhinav5050649/eventPro/assets/89687523/683f331f-dbd8-4f69-894e-6b6a59409f0f)
+
+![image](https://github.com/Abhinav5050649/eventPro/assets/89687523/5ab97f0b-6de7-44b7-8017-a76bb50a339e)
+
 
 User Dashboard: 
-![image](https://github.com/Abhinav5050649/eventPro/assets/89687523/9f478663-67b1-46fe-8bdd-6dcf62f6a559)
+
+![image](https://github.com/Abhinav5050649/eventPro/assets/89687523/5bec907c-4201-4c5a-b872-20ae3f11027a)
+
 
 All Events Page:
-![image](https://github.com/Abhinav5050649/eventPro/assets/89687523/98a7beca-d966-4674-9d33-698c3b424416)
+
+![image](https://github.com/Abhinav5050649/eventPro/assets/89687523/c3e7e9c2-09d3-4ec5-9cb0-ee54bae6c23e)
+
 
 User Events Page:
-![image](https://github.com/Abhinav5050649/eventPro/assets/89687523/b3890515-ffd7-49df-85b6-2d08b82662f8)
+
+![image](https://github.com/Abhinav5050649/eventPro/assets/89687523/33296704-376f-4a81-a260-3436bae23d93)
+
 
 Create Events Form Page:
-![image](https://github.com/Abhinav5050649/eventPro/assets/89687523/0ea69744-efb0-417a-9cbb-b137c0aa7c25)
+
+![image](https://github.com/Abhinav5050649/eventPro/assets/89687523/fdb9eb0b-7217-4273-b789-eaeef32acdbb)
+
 
 Update Events Form Page:
-![image](https://github.com/Abhinav5050649/eventPro/assets/89687523/a7f3abee-0041-415a-844b-312971366275)
+
+![image](https://github.com/Abhinav5050649/eventPro/assets/89687523/b1e5527f-7d81-4e16-8c9d-8c67b273d62e)
+
