@@ -4,8 +4,27 @@ This is an Event Management Platform which enables users' to perform CRUD operat
 
 ## Tech Stack
 
-NextJS, TypeScript, MongoDB, Docker, MailTrap(For Event Mailing), Azure(For Deployment)
+NextJS, TypeScript, MongoDB, MailTrap(For Event Mailing), Docker and Azure[For Deployment (Azure Container Instances Used)]
 
+## Instructions on how to set up the application
+
+1) Clone into the repo after forking it (or directly cloning it. Your call)
+2) Create a .env file in the evpr directory
+3) In the .env file, following details need to be mentioned:
+   i) TOKEN_SECRET (For JWT Tokens) [String]
+   ii) MONGO_URL (For connecting to database. You can use the local mongo or the cloud one. Just add the appropriate URL) [String]
+   iii) DOMAIN (Just specify where you plan to run this project. Default value can be "http://localhost:3000") [String]
+   iv) MAIL_USER (This is your MailTrap Username) [String]
+   v) MAIL_PASS (This is your MailTrap Password) [String]
+   vi) MAIL_ID (The Email ID with which mail should be sent to users upon participation/non-participation of events) [String]
+   vii)DEFAULT_EVENT_IMG (This is the default image which is to be used in case user doesn't provide any image url for their events) [String]
+4) Type "npm install" in CLI to install all dependencies
+
+## How to Run
+
+1) In Dev Mode: Just type "npm run dev" in CLI
+2) In Prod Mode: Use the Dockerfile to build an image(feel free to use any nameyou want). Then, run a container based on the image.
+   
 ## Images
 
 Home Page:
