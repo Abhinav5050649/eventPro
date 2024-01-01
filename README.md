@@ -6,7 +6,7 @@ This is an Event Management Platform which enables users' to perform CRUD operat
 
 NextJS, TypeScript, MongoDB, Docker, MailTrap(For Event Mailing), Azure(For Deployment)
 
-## Images (taken when web app run on localhost machine)
+## Images
 
 Home Page:
 
