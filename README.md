@@ -32,7 +32,7 @@ NextJS, TypeScript, MongoDB, MailTrap(For Event Mailing), Docker and Azure[For D
 ## How to Run
 
 1) In Dev Mode: Just type "npm run dev" in CLI
-2) In Prod Mode: Use the Dockerfile to build an image(feel free to use any nameyou want). Then, run a container based on the image.
+2) In Prod Mode: Use the Dockerfile to build an image(feel free to use any name you want). Then, run a container based on the image.
    
 ## Images
 
