@@ -11,7 +11,7 @@ interface Event {
   image?: string;
 }
 
-export default function showEvents() {
+export default function ShowEvents() {
   const [data, setData] = useState<Event[]>([]);
   const router = useRouter();
 

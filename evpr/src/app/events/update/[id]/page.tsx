@@ -14,7 +14,7 @@ interface Event {
   miscLinks: string;
 }
 
-export default function eventUpdateForm({params}: any) {
+export default function EventUpdateForm({params}: any) {
 
     const router = useRouter();
 
