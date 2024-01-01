@@ -47,3 +47,7 @@ Update Events Form Page:
 
 ![image](https://github.com/Abhinav5050649/eventPro/assets/89687523/b1e5527f-7d81-4e16-8c9d-8c67b273d62e)
 
+Page to view single event:
+
+![image](https://github.com/Abhinav5050649/eventPro/assets/89687523/fb875422-6ce9-4d30-a532-11edb5ce9dba)
+
