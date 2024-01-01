@@ -11,14 +11,23 @@ NextJS, TypeScript, MongoDB, MailTrap(For Event Mailing), Docker and Azure[For D
 1) Clone into the repo after forking it (or directly cloning it. Your call)
 2) Create a .env file in the evpr directory
 3) In the .env file, following details need to be mentioned:
-   i) TOKEN_SECRET (For JWT Tokens) [String]
-   ii) MONGO_URL (For connecting to database. You can use the local mongo or the cloud one. Just add the appropriate URL) [String]
-   iii) DOMAIN (Just specify where you plan to run this project. Default value can be "http://localhost:3000") [String]
-   iv) MAIL_USER (This is your MailTrap Username) [String]
-   v) MAIL_PASS (This is your MailTrap Password) [String]
-   vi) MAIL_ID (The Email ID with which mail should be sent to users upon participation/non-participation of events) [String]
-   vii)DEFAULT_EVENT_IMG (This is the default image which is to be used in case user doesn't provide any image url for their events) [String]
-4) Type "npm install" in CLI to install all dependencies
+   
+   (i) TOKEN_SECRET (For JWT Tokens) [String]
+   
+   (ii) MONGO_URL (For connecting to database. You can use the local mongo or the cloud one. Just add the appropriate URL) [String]
+
+   (iii) DOMAIN (Just specify where you plan to run this project. Default value can be "http://localhost:3000") [String]
+         You can choose to not keep this DOMAIN and just let nextjs run the web app on the localhost with the default port 3000.
+   
+   (iv) MAIL_USER (This is your MailTrap Username) [String]
+   
+   (v) MAIL_PASS (This is your MailTrap Password) [String]
+   
+   (vi) MAIL_ID (The Email ID with which mail should be sent to users upon participation/non-participation of events) [String]
+   
+   (vii)DEFAULT_EVENT_IMG (This is the default image which is to be used in case user doesn't provide any image url for their events) [String]
+   
+5) Type "npm install" in CLI to install all dependencies
 
 ## How to Run
 
