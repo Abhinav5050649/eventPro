@@ -9,7 +9,9 @@ NextJS, TypeScript, MongoDB, Docker, MailTrap(For Event Mailing), Azure(For Depl
 ## Images (taken when web app run on localhost machine)
 
 Home Page:
-![image](https://github.com/Abhinav5050649/eventPro/assets/89687523/881657e7-2185-4de2-8a46-acd30576d8b8)
+
+![image](https://github.com/Abhinav5050649/eventPro/assets/89687523/0af13715-ac57-4ac0-998e-90e1b14f935e)
+
 
 Login Page:
 ![image](https://github.com/Abhinav5050649/eventPro/assets/89687523/4d3d4eb8-8f9f-46e4-b59d-f4f331275b14)
