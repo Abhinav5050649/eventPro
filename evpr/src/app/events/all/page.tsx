@@ -31,7 +31,7 @@ export default function ShowEvents() {
     <>
       <DNav />
       <div className="flex flex-col items-center min-h-screen">
-        {data.length === 0 ? (
+        {data.length == 0 ? (
           <h5 className="text-2xl font-bold mt-4 text-gray-900 dark:text-white mb-4">No events</h5>
         ) : (
           data.map((event: Event) => (
