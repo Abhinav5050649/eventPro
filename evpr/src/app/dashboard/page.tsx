@@ -43,7 +43,7 @@ export default function ProfilePage(){
                     (data.eventsParticipated.length == 0) ? <h5 className="text-4xl mt-6 font-bold dark:text-white">None</h5> :
                     <ul>
                         {data.eventsParticipated.map((event: any) => (
-                            <li key={event.eObjId}>
+                            <li key={event.eObjId} className="mt-5 text-center">
                                 {/* <Link href={`/events/${event.eObjId}`}>
                                     <a>{event.ename}</a>
                                 </Link> */}
